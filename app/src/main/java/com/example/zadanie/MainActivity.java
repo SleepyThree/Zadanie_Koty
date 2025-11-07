@@ -1,6 +1,7 @@
 package com.example.zadanie;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -36,6 +37,25 @@ public class MainActivity extends AppCompatActivity {
 
             ArrayList<Integer> zdjecia = new ArrayList<>();
 
+
+        zdjecia.add(R.drawable.zdj1);
+        zdjecia.add(R.drawable.zdj2);
+        zdjecia.add(R.drawable.zdj3);
+        zdjecia.add(R.drawable.zdj4);
+
+        int iloscZdjec = zdjecia.size();
+        nastepneZdj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (wyswietlaneZdj<zdjecia.size()-1){
+                    wyswietlaneZdj++;
+                    zdjecie.setImageResource(zdjecia.get(wyswietlaneZdj));
+                } else if (wyswietlaneZdj==zdjecia.size()-1) {
+                    zdjecie.setImageResource(zdjecia.get(0));
+                    wyswietlaneZdj=0;
+                }
+            }
+        });
 
     }
 }
