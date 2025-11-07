@@ -1,10 +1,12 @@
 package com.example.zadanie;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -92,5 +94,17 @@ public class MainActivity extends AppCompatActivity {
             public void afterTextChanged(Editable editable) {
             }
         });
+        rozoweTlo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    main.setBackgroundColor(Color.BLUE);
+                }
+                else{
+                    main.setBackgroundColor(Color.parseColor("#00796B"));
+                }
+            }
+        });
+
     }
 }
