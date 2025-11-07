@@ -1,6 +1,8 @@
 package com.example.zadanie;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -68,6 +70,27 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        ktoreZdj.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
 
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                try {
+                    int numer = Integer.parseInt(charSequence.toString()) - 1;
+                    if (numer >= 0 && numer < zdjecia.size()) {
+                        zdjecie.setImageResource(zdjecia.get(numer));
+                        wyswietlaneZdj = numer;
+                    }
+                } catch (Exception e) {
+
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
     }
 }
