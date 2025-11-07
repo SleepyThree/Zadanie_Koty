@@ -56,6 +56,18 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        poprzednieZdj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (wyswietlaneZdj>0){
+                    wyswietlaneZdj--;
+                    zdjecie.setImageResource(zdjecia.get(wyswietlaneZdj));
+                } else if (wyswietlaneZdj==0) {
+                    zdjecie.setImageResource(zdjecia.get(3));
+                    wyswietlaneZdj=3;
+                }
+            }
+        });
 
     }
 }
